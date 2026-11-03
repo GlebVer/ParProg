@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Worker: статистика массива</title>
+</head>
+<body>
+  <h1>Статистика массива: основной поток и Worker</h1>
+
+  <p>
+    Размер массива:
+    <select id="size">
+      <option value="100000">100 000</option>
+      <option value="1000000" selected>1 000 000</option>
+      <option value="5000000">5 000 000</option>
+    </select>
+    Нагрузка (сколько раз пройти по массиву):
+    <input id="repeats" type="number" value="50" min="1">
+    <button id="btn-generate">Сгенерировать массив</button>
+  </p>
+
+  <p>
+    <button id="btn-main">Считать в основном потоке</button>
+    <button id="btn-worker">Считать в Worker</button>
+    <button id="btn-cancel">Отменить задачу в Worker</button>
+    <button id="btn-error">Проверка ошибки (пустой массив)</button>
+    <button id="btn-terminate">Завершить Worker</button>
+  </p>
+
+  <p>Счётчик (если интерфейс завис, число остановится): <b id="counter">0</b></p>
+  <p>Статус: <span id="status">Сначала сгенерируйте массив</span></p>
+
+  <h3>Последний результат</h3>
+  <pre id="result">-</pre>
+
+  <h3>Журнал замеров</h3>
+  <pre id="log"></pre>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
